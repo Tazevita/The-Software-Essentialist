@@ -1,0 +1,15 @@
+-- CreateTable
+CREATE TABLE "PostVotes" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "isLike" BOOLEAN NOT NULL,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "PostVotes_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "CommentVotes" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "isLike" BOOLEAN NOT NULL,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "CommentVotes_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
