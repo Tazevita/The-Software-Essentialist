@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-ts"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  email        String         @unique
+  username     String         @unique
+  firstName    String
+  lastName     String
+  password     String
+  posts        Post[]
+  comments     Comment[]
+  postVotes    PostVotes[]
+  commentVotes CommentVotes[]
+}
+
+model PostVotes {
+  id     Int     @id @default(autoincrement())
+  isLike Boolean
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int
+  post   Post    @relation(fields: [postId], references: [id])
+  postId Int
+}
+
+model CommentVotes {
+  id        Int     @id @default(autoincrement())
+  isLike    Boolean
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  comment   Comment @relation(fields: [commentId], references: [id])
+  commentId Int
+}
+
+model Post {
+  id             Int         @id @default(autoincrement())
+  title          String
+  datePosted     DateTime    @default(now())
+  postContent    String
+  comments       Comment[]
+  postVotes      PostVotes[]
+  posterUsername String
+  user           User        @relation(fields: [userId], references: [id])
+  userId         Int
+}
+
+model Comment {
+  id                Int            @id @default(autoincrement())
+  comment           String
+  repliedCommentId  Int
+  commentVotes      CommentVotes[]
+  commenterUsername String
+  user              User           @relation(fields: [userId], references: [id])
+  userId            Int
+  post              Post           @relation(fields: [postId], references: [id])
+  postId            Int
+  commentId         Int?
+}
