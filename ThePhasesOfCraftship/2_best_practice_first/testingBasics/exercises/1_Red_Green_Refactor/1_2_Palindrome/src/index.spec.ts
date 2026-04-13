@@ -6,8 +6,10 @@ describe("palindrome checker", () => {
     palindrome = new Palindrome();
   });
 
-  it("should return true when a valid palindrome is inputted like 'mom'", () => {
-    expect(palindrome.palindromeChecker("mom")).toBeTruthy();
+  it("should return true when a valid palindrome is inputted like 'mom', 'pop', 'dad', and 'anna'", () => {
+    ["mom", "pop", "dad", "anna"].forEach((palindromeCheckerInput) => {
+      expect(palindrome.palindromeChecker(palindromeCheckerInput)).toBeTruthy();
+    });
   });
 
   it("should return false when an invalid palindrome is inputted like 'bill'", () => {
