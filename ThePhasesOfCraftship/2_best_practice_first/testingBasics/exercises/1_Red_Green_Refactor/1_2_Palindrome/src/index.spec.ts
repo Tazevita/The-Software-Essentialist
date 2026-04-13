@@ -12,8 +12,10 @@ describe("palindrome checker", () => {
     });
   });
 
-  it("should return false when an invalid palindrome is inputted like 'bill'", () => {
-    expect(palindrome.palindromeChecker("bill")).toBeFalsy();
+  it("should return false when an invalid palindrome is inputted like 'bill', 'john', 'alex', 'james'", () => {
+    ["bill", "john", "alex", "james"].forEach((palindromeCheckerInput) => {
+      expect(palindrome.palindromeChecker(palindromeCheckerInput)).toBeFalsy();
+    });
   });
 
   it("should return true when a valid palindrome is inputted even if the casing is off like 'Mom'", () => {
