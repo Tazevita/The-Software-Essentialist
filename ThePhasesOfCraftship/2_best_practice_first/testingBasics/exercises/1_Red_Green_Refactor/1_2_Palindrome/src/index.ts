@@ -1,5 +1,8 @@
 export class Palindrome {
   palindromeChecker(str: string) {
-    return str.toLowerCase() === str.split("").reverse().join("").toLowerCase();
+    return (
+      str.split(" ").join("").toLowerCase() ===
+      str.split("").reverse().join("").toLowerCase().split(" ").join("")
+    );
   }
 }

@@ -15,4 +15,9 @@ describe("palindrome checker", () => {
     let palindrome = new Palindrome();
     expect(palindrome.palindromeChecker("Mom")).toBeTruthy();
   });
+
+  it("should return true when a valid palindrome is inputted even if the casing is off and spaces are in the way like 'Was It A Rat I Saw'", () => {
+    let palindrome = new Palindrome();
+    expect(palindrome.palindromeChecker("Was It A Rat I Saw")).toBeTruthy();
+  });
 });
