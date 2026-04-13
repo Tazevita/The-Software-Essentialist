@@ -6,6 +6,10 @@ describe("fizzbuzz", () => {
   });
 
   it("only accepts numbers greater than or equal to 1", () => {
-    expect(() => fizzBuzz(0)).toThrow("Number to low");
+    expect(() => fizzBuzz(0)).toThrow("Number too low");
+  });
+
+  it("only accepts numbers less than or equal to 100", () => {
+    expect(() => fizzBuzz(101)).toThrow("Number too high");
   });
 });
