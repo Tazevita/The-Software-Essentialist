@@ -1,15 +1,20 @@
 export function fizzBuzz(num: number) {
   if (num < 1) {
     throw new Error("Number too low");
-  } else if (num > 100) {
+  }
+  if (num > 100) {
     throw new Error("Number too high");
   }
+
   if (num % 3 === 0 && num % 5 === 0) {
     return "fizzbuzz";
-  } else if (num % 3 === 0) {
+  }
+  if (num % 3 === 0) {
     return "fizz";
-  } else if (num % 5 === 0) {
+  }
+  if (num % 5 === 0) {
     return "buzz";
   }
+
   return String(num);
 }

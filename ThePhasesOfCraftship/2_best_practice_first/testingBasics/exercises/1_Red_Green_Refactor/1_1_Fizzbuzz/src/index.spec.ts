@@ -1,15 +1,15 @@
 import { fizzBuzz } from "./fizzbuzz";
 
 describe("fizzbuzz", () => {
-  it("only accepts numbers greater than or equal to 1", () => {
+  it("only accepts numbers greater than or equal to 1. Testcase: 0", () => {
     expect(() => fizzBuzz(0)).toThrow("Number too low");
   });
 
-  it("only accepts numbers less than or equal to 100", () => {
+  it("only accepts numbers less than or equal to 100. Testcase: 101", () => {
     expect(() => fizzBuzz(101)).toThrow("Number too high");
   });
 
-  it("returns inputted number in string form", () => {
+  it("returns inputted number in string form when not a multiple of 3 or 5. Testcase: 1", () => {
     expect(fizzBuzz(1)).toBe("1");
   });
 
