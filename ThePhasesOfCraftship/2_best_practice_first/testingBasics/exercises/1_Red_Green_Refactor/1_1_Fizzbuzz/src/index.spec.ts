@@ -16,4 +16,8 @@ describe("fizzbuzz", () => {
   it("returns inputted number in string form", () => {
     expect(fizzBuzz(1)).toBe("1");
   });
+
+  it("returns 'fizz' when the number is a multiple of 3", () => {
+    expect(fizzBuzz(3)).toBe("fizz");
+  });
 });
