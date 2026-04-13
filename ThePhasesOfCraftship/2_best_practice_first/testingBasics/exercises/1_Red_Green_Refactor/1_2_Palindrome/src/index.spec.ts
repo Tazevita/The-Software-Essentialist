@@ -10,4 +10,9 @@ describe("palindrome checker", () => {
     let palindrome = new Palindrome();
     expect(palindrome.palindromeChecker("bill")).toBeFalsy();
   });
+
+  it("should return true when a valid palindrome is inputted even if the casing is off like 'Mom'", () => {
+    let palindrome = new Palindrome();
+    expect(palindrome.palindromeChecker("Mom")).toBeTruthy();
+  });
 });
