@@ -20,7 +20,12 @@ describe("fizzbuzz", () => {
   it("returns 'fizz' when the number inputted is a multiple of 3", () => {
     expect(fizzBuzz(3)).toBe("fizz");
   });
+
   it("returns 'buzz' when the number inputted is a multiple of 5", () => {
     expect(fizzBuzz(5)).toBe("buzz");
+  });
+
+  it("returns 'fizzbuzz' when the number inputted is a multiple of 5 and 3", () => {
+    expect(fizzBuzz(15)).toBe("fizzbuzz");
   });
 });
