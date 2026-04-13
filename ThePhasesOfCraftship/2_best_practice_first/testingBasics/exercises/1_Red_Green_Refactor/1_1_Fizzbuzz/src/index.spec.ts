@@ -12,4 +12,8 @@ describe("fizzbuzz", () => {
   it("only accepts numbers less than or equal to 100", () => {
     expect(() => fizzBuzz(101)).toThrow("Number too high");
   });
+
+  it("returns inputted number in string form", () => {
+    expect(fizzBuzz(1)).toBe("1");
+  });
 });

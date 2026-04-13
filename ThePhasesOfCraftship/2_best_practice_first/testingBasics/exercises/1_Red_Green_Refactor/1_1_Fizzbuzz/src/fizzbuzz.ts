@@ -4,5 +4,5 @@ export function fizzBuzz(num: number) {
   } else if (num > 100) {
     throw new Error("Number too high");
   }
-  return "";
+  return String(num);
 }
