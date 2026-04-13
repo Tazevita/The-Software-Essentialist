@@ -24,7 +24,13 @@ describe("palindrome checker", () => {
     });
   });
 
-  it("should return true when a valid palindrome is inputted even if the casing is off and spaces are in the way like 'Was It A Rat I Saw'", () => {
-    expect(palindrome.palindromeChecker("Was It A Rat I Saw")).toBeTruthy();
+  it("should return true when a valid palindrome is inputted even if the casing is off and spaces are in the way like 'Was It A Rat I Saw', or 'Never Odd or Even'", () => {
+    ["Was It A Rat I Saw", "Never Odd or Even"].forEach(
+      (palindromeCheckerInput) => {
+        expect(
+          palindrome.palindromeChecker(palindromeCheckerInput),
+        ).toBeTruthy();
+      },
+    );
   });
 });
