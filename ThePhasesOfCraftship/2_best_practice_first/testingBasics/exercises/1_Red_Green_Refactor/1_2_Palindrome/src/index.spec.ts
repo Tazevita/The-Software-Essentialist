@@ -18,8 +18,10 @@ describe("palindrome checker", () => {
     });
   });
 
-  it("should return true when a valid palindrome is inputted even if the casing is off like 'Mom'", () => {
-    expect(palindrome.palindromeChecker("Mom")).toBeTruthy();
+  it("should return true when a valid palindrome is inputted even if the casing is off like 'Mom', 'Pop', 'daD', and 'AnNa'", () => {
+    ["Mom", "Pop", "daD", "AnNa"].forEach((palindromeCheckerInput) => {
+      expect(palindrome.palindromeChecker(palindromeCheckerInput)).toBeTruthy();
+    });
   });
 
   it("should return true when a valid palindrome is inputted even if the casing is off and spaces are in the way like 'Was It A Rat I Saw'", () => {
