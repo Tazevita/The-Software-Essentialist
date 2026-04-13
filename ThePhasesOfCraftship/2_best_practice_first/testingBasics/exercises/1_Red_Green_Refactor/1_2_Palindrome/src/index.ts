@@ -1,12 +1,14 @@
-function removeSpaces(str: string) {
+function removeSpacesFromString(str: string) {
   return str.split(" ").join("");
 }
-
+function reverseString(str: string) {
+  return str.split("").reverse().join("");
+}
 export class Palindrome {
   palindromeChecker(str: string) {
     return (
-      removeSpaces(str).toLowerCase() ===
-      removeSpaces(str.split("").reverse().join("").toLowerCase())
+      removeSpacesFromString(str).toLowerCase() ===
+      removeSpacesFromString(reverseString(str).toLowerCase())
     );
   }
 }
