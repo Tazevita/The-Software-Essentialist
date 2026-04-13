@@ -17,15 +17,27 @@ describe("fizzbuzz", () => {
     expect(fizzBuzz(1)).toBe("1");
   });
 
-  it("returns 'fizz' when the number inputted is a multiple of 3", () => {
+  it("returns 'fizz' when the number inputted is a multiple of 3. Testcase: 3", () => {
     expect(fizzBuzz(3)).toBe("fizz");
   });
 
-  it("returns 'buzz' when the number inputted is a multiple of 5", () => {
+  it("returns 'fizz' when the number inputted is a multiple of 3. Testcase: 6", () => {
+    expect(fizzBuzz(6)).toBe("fizz");
+  });
+
+  it("returns 'buzz' when the number inputted is a multiple of 5. Testcase: 5", () => {
     expect(fizzBuzz(5)).toBe("buzz");
   });
 
-  it("returns 'fizzbuzz' when the number inputted is a multiple of 5 and 3", () => {
+  it("returns 'buzz' when the number inputted is a multiple of 5. Testcase: 10", () => {
+    expect(fizzBuzz(10)).toBe("buzz");
+  });
+
+  it("returns 'fizzbuzz' when the number inputted is a multiple of 5 and 3. Testcase: 15", () => {
     expect(fizzBuzz(15)).toBe("fizzbuzz");
+  });
+
+  it("returns 'fizzbuzz' when the number inputted is a multiple of 5 and 3. Testcase: 45", () => {
+    expect(fizzBuzz(45)).toBe("fizzbuzz");
   });
 });
