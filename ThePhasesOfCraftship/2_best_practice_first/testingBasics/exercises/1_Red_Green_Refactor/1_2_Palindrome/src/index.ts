@@ -8,7 +8,7 @@ export class Palindrome {
   palindromeChecker(str: string) {
     return (
       removeSpacesFromString(str).toLowerCase() ===
-      removeSpacesFromString(reverseString(str).toLowerCase())
+      removeSpacesFromString(reverseString(str)).toLowerCase()
     );
   }
 }
