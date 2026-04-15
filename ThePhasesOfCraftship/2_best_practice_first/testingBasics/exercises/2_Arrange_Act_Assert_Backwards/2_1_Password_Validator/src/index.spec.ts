@@ -5,7 +5,7 @@ describe("password validator", () => {
     it.each(["Mom4", "Abc4", "Ab3"])(
       "blocks the password %s because its less than 5 characters",
       (password) => {
-        let result = passwordValidator(password);
+        const result = passwordValidator(password);
         expect(result.errors).toContain(PASSWORD_ERRORS.TOO_SHORT);
         expect(result.isValid).toBeFalsy();
       },
@@ -18,7 +18,7 @@ describe("password validator", () => {
     ])(
       "blocks the password %s because its over 15 characters long ",
       (password) => {
-        let result = passwordValidator(password);
+        const result = passwordValidator(password);
         expect(result.errors).toContain(PASSWORD_ERRORS.TOO_LONG);
         expect(result.isValid).toBeFalsy();
       },
@@ -29,7 +29,7 @@ describe("password validator", () => {
     it.each(["Mother", "Password", "Invalid"])(
       "blocks the password %s because it doesn't contain a number",
       (password) => {
-        let result = passwordValidator(password);
+        const result = passwordValidator(password);
         expect(result.errors).toContain(PASSWORD_ERRORS.NO_NUMBER);
         expect(result.isValid).toBeFalsy();
       },
@@ -40,7 +40,7 @@ describe("password validator", () => {
     it.each(["mom55", "invalid8", "nocapital11"])(
       "blocks the password %s because there is no upper case letter",
       (password) => {
-        let result = passwordValidator(password);
+        const result = passwordValidator(password);
         expect(result.errors).toContain(PASSWORD_ERRORS.NO_UPPERCASE);
         expect(result.isValid).toBeFalsy();
       },
@@ -72,7 +72,7 @@ describe("password validator", () => {
     ])(
       "blocks the password %s for multiple reasons",
       (password, errorCount, errors) => {
-        let result = passwordValidator(password);
+        const result = passwordValidator(password);
         expect(result.errors).toHaveLength(errorCount);
         expect(result.isValid).toBeFalsy();
         errors.forEach((passwordError) => {
@@ -86,9 +86,9 @@ describe("password validator", () => {
     it.each(["Mom55", "Valid6", "Password9"])(
       "accepts password %s because it meets all the reqs",
       (password) => {
-        let result = passwordValidator(password);
+        const result = passwordValidator(password);
         expect(result.isValid).toBeTruthy();
-        expect(result.errors.length).toBe(0);
+        expect(result.errors).toHaveLength(0);
       },
     );
   });
