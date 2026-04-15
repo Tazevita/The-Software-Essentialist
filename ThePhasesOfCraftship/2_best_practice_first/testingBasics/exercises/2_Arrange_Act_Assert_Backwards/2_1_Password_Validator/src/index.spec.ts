@@ -1,9 +1,7 @@
+import { passwordValidator } from "./index";
 
-describe('password validator', () => {
-
-  test('hello', () => {
-    expect("between 5 and 15").toContain('5 and 15')
-  })
-})
-
-
+describe("password validator", () => {
+  it("returns false when we check password 'Mom4' because password length is less than 5", () => {
+    expect(passwordValidator("Mom4").isValid).toBeFalsy();
+  });
+});
