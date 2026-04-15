@@ -75,8 +75,8 @@ describe("password validator", () => {
         const result = passwordValidator(password);
         expect(result.errors).toHaveLength(errorCount);
         expect(result.isValid).toBeFalsy();
-        errors.forEach((passwordError) => {
-          expect(result.errors).toContain(passwordError);
+        result.errors.forEach((passwordError) => {
+          expect(errors).toContain(passwordError);
         });
       },
     );
