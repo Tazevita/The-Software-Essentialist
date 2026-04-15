@@ -9,6 +9,11 @@ describe("password validator", () => {
       "Password under 5 characters",
     );
   });
+  it("returns object that contains 1 error when we check password that indicates password length is more than 15 when we input 'MotherMotherLength20'", () => {
+    expect(passwordValidator("MotherMotherLength20").errors).toContain(
+      "Password over 15 characters",
+    );
+  });
   it("returns object that contains 1 error that indicates there are no numbers when we input 'Mother'", () => {
     expect(passwordValidator("Mother").errors).toContain(
       "Password conatains no numbers",

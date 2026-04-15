@@ -19,6 +19,7 @@ export function passwordValidator(password: string) {
   let errors: string[] = [];
 
   if (password.length < 5) errors.push("Password under 5 characters");
+  if (password.length > 15) errors.push("Password over 15 characters");
   if (!containsNumber(password)) errors.push("Password conatains no numbers");
 
   return {
