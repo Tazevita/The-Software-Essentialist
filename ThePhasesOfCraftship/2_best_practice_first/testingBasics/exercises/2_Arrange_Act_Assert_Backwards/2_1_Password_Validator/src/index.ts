@@ -5,19 +5,26 @@ export type PasswordValidationResult = {
 
 const containsNumber = (str: string) => /\d/.test(str);
 
-export function passwordValidator(password: string) {
-  let errors: string[] = [];
+const containsUpperCaseLetter = (str: string) => /[A-Z]/.test(str);
 
-  if (password.length < 5)
-    errors.push("Password must be over 5 characters long");
+export const PASSWORD_ERRORS = {
+  TOO_SHORT: "Password must be over 5 characters long",
+  TOO_LONG: "Password must be less than 15 characters long",
+  NO_NUMBER: "Password must contain a number",
+  NO_UPPERCASE: "Password must contain an uppercase letter",
+} as const;
 
-  if (password.length > 15)
-    errors.push("Password must be less than 15 characters long");
+export function passwordValidator(password: string): PasswordValidationResult {
+  const errors: string[] = [];
 
-  if (!containsNumber(password)) errors.push("Password must contain a number");
+  if (password.length < 5) errors.push(PASSWORD_ERRORS.TOO_SHORT);
 
-  if (!/[A-Z]/.test(password))
-    errors.push("Password must contain an uppercase letter");
+  if (password.length > 15) errors.push(PASSWORD_ERRORS.TOO_LONG);
+
+  if (!containsNumber(password)) errors.push(PASSWORD_ERRORS.NO_NUMBER);
+
+  if (!containsUpperCaseLetter(password))
+    errors.push(PASSWORD_ERRORS.NO_UPPERCASE);
 
   return {
     isValid: errors.length === 0,

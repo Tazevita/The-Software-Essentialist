@@ -1,11 +1,11 @@
-import { passwordValidator } from "./index";
+import { passwordValidator, PASSWORD_ERRORS } from "./index";
 
 describe("password validator", () => {
   it.each(["Mom4", "Abc4", "Ab3"])(
     "blocks the password %s because its less than 5 characters",
     (password) => {
       expect(passwordValidator(password).errors).toContain(
-        "Password must be over 5 characters long",
+        PASSWORD_ERRORS.TOO_SHORT,
       );
     },
   );
@@ -18,7 +18,7 @@ describe("password validator", () => {
     "blocks the password %s because its over 15 characters long ",
     (password) => {
       expect(passwordValidator(password).errors).toContain(
-        "Password must be less than 15 characters long",
+        PASSWORD_ERRORS.TOO_LONG,
       );
     },
   );
@@ -27,7 +27,7 @@ describe("password validator", () => {
     "blocks the password %s because it doesn't contain a number",
     (password) => {
       expect(passwordValidator(password).errors).toContain(
-        "Password must contain a number",
+        PASSWORD_ERRORS.NO_NUMBER,
       );
     },
   );
@@ -36,13 +36,13 @@ describe("password validator", () => {
     "blocks the password %s because there is no uppercase letter",
     (password) => {
       expect(passwordValidator(password).errors).toContain(
-        "Password must contain an uppercase letter",
+        PASSWORD_ERRORS.NO_UPPERCASE,
       );
     },
   );
 
   it.each(["mom", "pass", "nope"])(
-    "blocks %s for being short, no number, and no uppercase",
+    "blocks the password %s for being short, no number, and no uppercase",
     (password) => {
       expect(passwordValidator(password).errors).toHaveLength(3);
     },
