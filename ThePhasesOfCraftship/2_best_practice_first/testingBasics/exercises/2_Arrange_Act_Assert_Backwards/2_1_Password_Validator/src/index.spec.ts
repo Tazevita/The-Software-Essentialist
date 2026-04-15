@@ -25,6 +25,10 @@ describe("password validator", () => {
     );
   });
 
+  it("blocks 'mom' for being short, no number, and no uppercase", () => {
+    expect(passwordValidator("mom").errors).toHaveLength(3);
+  });
+
   it("accepts password 'Mom55' because it meets all the reqs", () => {
     expect(passwordValidator("Mom55").isValid).toBeTruthy();
   });
