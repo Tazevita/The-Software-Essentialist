@@ -41,12 +41,13 @@ describe("password validator", () => {
     },
   );
 
-  it.each(["mom", "pass", "nope"])(
-    "blocks the password %s for being short, no number, and no uppercase",
-    (password) => {
-      expect(passwordValidator(password).errors).toHaveLength(3);
-    },
-  );
+  it.each([
+    ["mom", 3],
+    ["Pass", 2],
+    ["no2", 2],
+  ])("blocks the password %s for multiple reasons", (password, errorCount) => {
+    expect(passwordValidator(password).errors).toHaveLength(errorCount);
+  });
 
   it.each(["Mom55", "Valid6", "Password9"])(
     "accepts password %s because it meets all the reqs",
