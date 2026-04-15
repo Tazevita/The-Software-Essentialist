@@ -6,17 +6,17 @@ describe("password validator", () => {
   });
   it("returns object that contains 1 error when we check password that indicates password length is less than 5 when we input 'Mom4'", () => {
     expect(passwordValidator("Mom4").errors).toContain(
-      "Password under 5 characters",
+      "Password must be over 5 characters long",
     );
   });
   it("returns object that contains 1 error when we check password that indicates password length is more than 15 when we input 'MotherMotherLength20'", () => {
     expect(passwordValidator("MotherMotherLength20").errors).toContain(
-      "Password over 15 characters",
+      "Password must be less than 15 characters long",
     );
   });
   it("returns object that contains 1 error that indicates there are no numbers when we input 'Mother'", () => {
     expect(passwordValidator("Mother").errors).toContain(
-      "Password conatains no numbers",
+      "Password must contain a number",
     );
   });
   it("returns object that contains 1 error that indicates there are no upper case letters when we input 'mom55'", () => {
