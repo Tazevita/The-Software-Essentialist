@@ -19,4 +19,9 @@ describe("password validator", () => {
       "Password conatains no numbers",
     );
   });
+  it("returns object that contains 1 error that indicates there are no upper case letters when we input 'mom55'", () => {
+    expect(passwordValidator("mom55").errors).toContain(
+      "Password must contain an uppercase letter",
+    );
+  });
 });
