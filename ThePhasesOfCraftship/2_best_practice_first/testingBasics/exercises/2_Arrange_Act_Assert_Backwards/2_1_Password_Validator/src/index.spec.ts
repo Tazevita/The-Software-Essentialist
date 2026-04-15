@@ -24,4 +24,8 @@ describe("password validator", () => {
       "Password must contain an uppercase letter",
     );
   });
+
+  it("accepts password 'Mom55' because it meets all the reqs", () => {
+    expect(passwordValidator("Mom55").isValid).toBeTruthy();
+  });
 });
