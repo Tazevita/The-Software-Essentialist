@@ -30,14 +30,11 @@ describe("password validator", () => {
   });
 
   it("return object that contains 3 errors that indicate that there is no upper case letters, that there are no numbers, and that password is too short when we input 'mom'", () => {
-    expect(passwordValidator("mom").errors).toContain(
+    let results = passwordValidator("mom");
+    expect(results.errors).toContain(
       "Password must contain an uppercase letter",
     );
-    expect(passwordValidator("mom").errors).toContain(
-      "Password must contain a number",
-    );
-    expect(passwordValidator("mom").errors).toContain(
-      "Password must be over 5 characters long",
-    );
+    expect(results.errors).toContain("Password must contain a number");
+    expect(results.errors).toContain("Password must be over 5 characters long");
   });
 });
