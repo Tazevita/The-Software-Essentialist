@@ -16,12 +16,13 @@ describe("stats calculator", () => {
   });
 
   describe("gets largest number of a list", () => {
-    it.each([[53, [2, 4, 21, -8, 53, 40]]])(
-      "gets the largest number %s from the list %s",
-      (largestNum, numList) => {
-        expect(statsCalculator(numList).largest).toBe(largestNum);
-      },
-    );
+    it.each([
+      [53, [2, 4, 21, -8, 53, 40]],
+      [81, [18, 3, 81, 30, 20]],
+      [561, [180, 92, 121, 561, 51, 401]],
+    ])("gets the largest number %s from the list %s", (largestNum, numList) => {
+      expect(statsCalculator(numList).largest).toBe(largestNum);
+    });
   });
 
   describe("gets the size of a list", () => {
