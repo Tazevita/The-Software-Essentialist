@@ -1,0 +1,5 @@
+export function statsCalculator(numList: number[]) {
+  if (numList.length === 0) throw new Error("EmptyList");
+
+  return {};
+}
