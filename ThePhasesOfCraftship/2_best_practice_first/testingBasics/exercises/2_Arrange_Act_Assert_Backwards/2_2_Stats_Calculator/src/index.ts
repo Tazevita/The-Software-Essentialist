@@ -3,16 +3,19 @@ export function statsCalculator(numList: number[]) {
 
   let smallest = Infinity;
   let largest = -Infinity;
+  let sum = 0;
 
   for (let i = 0; i < numList.length; i++) {
     if (numList[i] < smallest) smallest = numList[i];
     if (numList[i] > largest) largest = numList[i];
+
+    sum = sum + numList[i];
   }
 
   return {
     smallest,
     largest,
     listSize: numList.length,
-    average: 18.666666666666668,
+    average: sum / numList.length,
   };
 }

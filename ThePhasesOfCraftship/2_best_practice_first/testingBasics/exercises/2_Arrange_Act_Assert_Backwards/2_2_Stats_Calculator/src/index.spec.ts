@@ -36,11 +36,12 @@ describe("stats calculator", () => {
   });
 
   describe("gets the average of a list", () => {
-    it.each([[18.666666666666668, [2, 4, 21, -8, 53, 40]]])(
-      "gets the list average %s from the list %s",
-      (average, numList) => {
-        expect(statsCalculator(numList).average).toBe(average);
-      },
-    );
+    it.each([
+      [18.666666666666668, [2, 4, 21, -8, 53, 40]],
+      [30.4, [18, 3, 81, 30, 20]],
+      [234.33333333333334, [180, 92, 121, 561, 51, 401]],
+    ])("gets the list average %s from the list %s", (average, numList) => {
+      expect(statsCalculator(numList).average).toBe(average);
+    });
   });
 });
