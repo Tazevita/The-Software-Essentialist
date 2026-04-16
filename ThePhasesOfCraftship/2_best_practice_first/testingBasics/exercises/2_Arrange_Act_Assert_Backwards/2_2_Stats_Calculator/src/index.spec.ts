@@ -6,12 +6,13 @@ describe("stats calculator", () => {
   });
 
   describe("gets smallest number of a list", () => {
-    it.each([[2, [2, 4, 21, -8, 53, 40]]])(
-      "gets the smallest number %s from the list %s",
-      (lowestNum, numList) => {
-        expect(statsCalculator(numList).smallest).toBe(lowestNum);
-      },
-    );
+    it.each([
+      [-8, [2, 4, 21, -8, 53, 40]],
+      [3, [18, 3, 81, 30, 20]],
+      [51, [180, 92, 121, 561, 51, 401]],
+    ])("gets the smallest number %s from the list %s", (lowestNum, numList) => {
+      expect(statsCalculator(numList).smallest).toBe(lowestNum);
+    });
   });
 
   describe("gets largest number of a list", () => {
@@ -33,10 +34,10 @@ describe("stats calculator", () => {
   });
 
   describe("gets the average of a list", () => {
-    it.each([[6, [2, 4, 21, -8, 53, 40]]])(
+    it.each([[18.666666666666668, [2, 4, 21, -8, 53, 40]]])(
       "gets the list average %s from the list %s",
       (average, numList) => {
-        expect(statsCalculator(numList).average).toBe(18.666666666666668);
+        expect(statsCalculator(numList).average).toBe(average);
       },
     );
   });
