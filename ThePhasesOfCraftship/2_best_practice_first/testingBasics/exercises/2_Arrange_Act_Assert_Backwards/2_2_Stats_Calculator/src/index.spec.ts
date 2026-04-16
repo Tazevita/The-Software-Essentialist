@@ -5,11 +5,11 @@ describe("stats calculator", () => {
     expect(() => statsCalculator([])).toThrowError("EmptyList");
   });
 
-  describe("gets lowest number of a list", () => {
+  describe("gets smallest number of a list", () => {
     it.each([[2, [2, 4, 21, -8, 53, 40]]])(
       "gets the lowest number %s from the list %s",
       (lowestNum, numList) => {
-        expect(statsCalculator(numList).lowest).toBe(lowestNum);
+        expect(statsCalculator(numList).smallest).toBe(lowestNum);
       },
     );
   });
