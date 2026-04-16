@@ -26,12 +26,13 @@ describe("stats calculator", () => {
   });
 
   describe("gets the size of a list", () => {
-    it.each([[6, [2, 4, 21, -8, 53, 40]]])(
-      "gets the list size %s from the list %s",
-      (listSize, numList) => {
-        expect(statsCalculator(numList).listSize).toBe(listSize);
-      },
-    );
+    it.each([
+      [6, [2, 4, 21, -8, 53, 40]],
+      [5, [18, 3, 81, 30, 20]],
+      [6, [180, 92, 121, 561, 51, 401]],
+    ])("gets the list size %s from the list %s", (listSize, numList) => {
+      expect(statsCalculator(numList).listSize).toBe(listSize);
+    });
   });
 
   describe("gets the average of a list", () => {
