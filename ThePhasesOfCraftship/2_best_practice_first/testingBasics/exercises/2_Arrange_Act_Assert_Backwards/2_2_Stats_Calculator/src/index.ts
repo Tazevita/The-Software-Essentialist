@@ -15,7 +15,7 @@ export function statsCalculator(numList: number[]) {
   return {
     smallest,
     largest,
-    listSize: numList.length,
+    size: numList.length,
     average: sum / numList.length,
   };
 }
