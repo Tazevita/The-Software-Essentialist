@@ -31,4 +31,13 @@ describe("stats calculator", () => {
       },
     );
   });
+
+  describe("gets the average of a list", () => {
+    it.each([[6, [2, 4, 21, -8, 53, 40]]])(
+      "gets the list average %s from the list %s",
+      (average, numList) => {
+        expect(statsCalculator(numList).average).toBe(18.666666666666668);
+      },
+    );
+  });
 });
