@@ -10,9 +10,6 @@
 
 ## What it knows
 
-- The list should only have numbers
-- Cannot use Math library functions
-- Average is sum of all divided by list size
 - This list should have at least 1 element
 
 ## Examples
