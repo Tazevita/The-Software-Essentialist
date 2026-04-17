@@ -6,6 +6,17 @@ const correctFormatChecker = (timeRange: string) => {
   );
 };
 
+const validTimeChecker = (time: string) => {
+  return !(
+    Number.isNaN(Number(time.substring(0, 2))) &&
+    Number.isNaN(Number(time.substring(3, 5)))
+  );
+};
+
 export const militaryTimeValidator = (timeRange: string) => {
-  return correctFormatChecker(timeRange);
+  return (
+    correctFormatChecker(timeRange) &&
+    validTimeChecker(timeRange.substring(0, 5)) &&
+    validTimeChecker(timeRange.substring(8, 13))
+  );
 };
