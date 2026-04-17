@@ -9,6 +9,10 @@ describe("military time validator", () => {
     expect(militaryTimeValidator("aa:aa - bb:bb")).toBeFalsy();
   });
 
+  it("blocks '01:12 - 14:3' because both times must contain 4 digits and a colon", () => {
+    expect(militaryTimeValidator("01:12 - 14:3")).toBeFalsy();
+  });
+
   it("validates a valid military time range like '01:12 - 14:32'", () => {
     expect(militaryTimeValidator("01:12 - 14:32")).toBeTruthy();
   });
