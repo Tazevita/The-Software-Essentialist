@@ -17,6 +17,10 @@ describe("military time validator", () => {
     expect(militaryTimeValidator("23:59 - 24:01")).toBeFalsy();
   });
 
+  it("blocks '01:60 - 02:30' because the first time is past the minute limit 59", () => {
+    expect(militaryTimeValidator("01:60 - 02:30")).toBeFalsy();
+  });
+
   it("validates a valid military time range like '01:12 - 14:32'", () => {
     expect(militaryTimeValidator("01:12 - 14:32")).toBeTruthy();
   });

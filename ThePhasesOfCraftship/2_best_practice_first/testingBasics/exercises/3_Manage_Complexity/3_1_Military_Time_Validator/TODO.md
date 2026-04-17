@@ -15,7 +15,3 @@
 - "25:00 - 12:23" (false)
 - "22:00 - 23:12" (true)
 - "23:12 - 10:11" (false)
-
-  it("blocks '01:60 - 02:30' because the first time is past the minute limit 59", () => {
-  expect(militaryTimeValidator("01:60 - 02:30")).toBeFalsy();
-  });
