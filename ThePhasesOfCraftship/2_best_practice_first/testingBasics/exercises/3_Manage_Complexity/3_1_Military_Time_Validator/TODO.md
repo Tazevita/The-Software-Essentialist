@@ -1,0 +1,14 @@
+# Doings
+
+- Validates a military time range
+
+# Kowings
+
+- Military time can be between 00:00 and 23:59
+- The first time in the time range should be less than the second time in the time range
+
+# Examples
+
+- "01:12 - 14:32" (true)
+- "25:00 - 12:23" (false)
+- "22:00 - 23:12" (true)

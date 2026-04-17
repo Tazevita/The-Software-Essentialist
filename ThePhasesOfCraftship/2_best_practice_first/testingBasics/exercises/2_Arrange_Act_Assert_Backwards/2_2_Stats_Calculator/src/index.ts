@@ -9,7 +9,7 @@ export function statsCalculator(numList: number[]) {
     if (numList[i] < smallest) smallest = numList[i];
     if (numList[i] > largest) largest = numList[i];
 
-    sum = sum + numList[i];
+    sum += numList[i];
   }
 
   return {
