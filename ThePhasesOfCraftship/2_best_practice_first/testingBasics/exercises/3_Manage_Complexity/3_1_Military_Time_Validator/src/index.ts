@@ -14,8 +14,8 @@ const validTimeChecker = (time: string) => {
   return (
     !Number.isNaN(getHours(time)) &&
     !Number.isNaN(getMinutes(time)) &&
-    Number(getHours(time)) < 24 &&
-    Number(getMinutes(time)) < 60
+    getHours(time) < 24 &&
+    getMinutes(time) < 60
   );
 };
 
