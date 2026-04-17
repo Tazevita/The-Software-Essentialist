@@ -1,3 +1,6 @@
+const getHours = (time: string) => Number(time.substring(0, 2));
+const getMinutes = (time: string) => Number(time.substring(3, 5));
+
 const correctFormatChecker = (timeRange: string) => {
   return (
     timeRange[2] === ":" &&
@@ -9,22 +12,18 @@ const correctFormatChecker = (timeRange: string) => {
 
 const validTimeChecker = (time: string) => {
   return (
-    !Number.isNaN(Number(time.substring(0, 2))) &&
-    !Number.isNaN(Number(time.substring(3, 5))) &&
-    Number(time.substring(0, 2)) < 24 &&
-    Number(time.substring(3, 5)) < 60
+    !Number.isNaN(getHours(time)) &&
+    !Number.isNaN(getMinutes(time)) &&
+    Number(getHours(time)) < 24 &&
+    Number(getMinutes(time)) < 60
   );
 };
 
 const validTimeRange = (firstTime: string, secondTime: string) => {
-  if (firstTime.substring(0, 2) === secondTime.substring(0, 2)) {
-    return (
-      Number(firstTime.substring(3, 5)) < Number(secondTime.substring(3, 5))
-    );
+  if (getHours(firstTime) === getHours(secondTime)) {
+    return getMinutes(firstTime) < getMinutes(secondTime);
   } else {
-    return (
-      Number(firstTime.substring(0, 2)) < Number(secondTime.substring(0, 2))
-    );
+    return getHours(firstTime) < getHours(secondTime);
   }
 };
 
