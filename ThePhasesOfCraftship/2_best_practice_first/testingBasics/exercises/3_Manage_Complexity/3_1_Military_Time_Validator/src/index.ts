@@ -8,9 +8,10 @@ const correctFormatChecker = (timeRange: string) => {
 };
 
 const validTimeChecker = (time: string) => {
-  return !(
-    Number.isNaN(Number(time.substring(0, 2))) &&
-    Number.isNaN(Number(time.substring(3, 5)))
+  return (
+    !Number.isNaN(Number(time.substring(0, 2))) &&
+    !Number.isNaN(Number(time.substring(3, 5))) &&
+    Number(time.substring(0, 2)) < 24
   );
 };
 
