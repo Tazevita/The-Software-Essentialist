@@ -52,8 +52,11 @@ describe("boolean calculator", () => {
   });
 
   describe("boolean strings using parenthesis", () => {
-    it("answers with False when given '(TRUE OR TRUE OR TRUE) AND FALSE", () => {
+    it("answers with False when given '(TRUE OR TRUE OR TRUE) AND FALSE'", () => {
       expect(booleanCalculator("(TRUE OR TRUE OR TRUE) AND FALSE")).toBeFalsy();
+    });
+    it("answers with False when given 'NOT (TRUE AND TRUE)'", () => {
+      expect(booleanCalculator("NOT (TRUE AND TRUE)")).toBeFalsy();
     });
   });
 });
