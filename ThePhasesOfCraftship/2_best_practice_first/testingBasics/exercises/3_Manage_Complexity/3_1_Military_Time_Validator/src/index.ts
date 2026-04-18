@@ -14,6 +14,8 @@ const validTimeChecker = (time: string) => {
   return (
     !Number.isNaN(getHours(time)) &&
     !Number.isNaN(getMinutes(time)) &&
+    Number.isInteger(getHours(time)) && // decimals are numbers but not integers
+    Number.isInteger(getMinutes(time)) &&
     getHours(time) < 24 &&
     getMinutes(time) < 60
   );
