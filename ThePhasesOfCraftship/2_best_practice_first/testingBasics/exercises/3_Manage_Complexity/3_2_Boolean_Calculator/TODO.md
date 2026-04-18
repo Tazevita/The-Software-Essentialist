@@ -22,7 +22,8 @@
 
 3. AND operator
 
-"TRUE AND FALSE" -> false "TRUE AND TRUE" -> true
+"TRUE AND FALSE" -> false
+"TRUE AND TRUE" -> true
 
 4. OR operator
 
