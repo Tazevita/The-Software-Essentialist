@@ -43,7 +43,7 @@ describe("boolean calculator", () => {
   });
 
   describe("boolean strings using multiple operations", () => {
-    it("answers with False when given 'TRUE OR FALSE AND NOT FALSE", () => {
+    it("answers with True when given 'TRUE OR FALSE AND NOT FALSE'", () => {
       expect(booleanCalculator("TRUE OR FALSE AND NOT FALSE")).toBeTruthy();
     });
     it("answers with True when given 'TRUE OR TRUE OR TRUE AND FALSE'", () => {
