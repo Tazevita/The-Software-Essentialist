@@ -7,5 +7,8 @@ export const booleanCalculator = (booleanString: string) => {
   booleanString = booleanString.replace("FALSE AND TRUE", "FALSE");
   booleanString = booleanString.replace("FLASE AND FALSE", "FALSE");
 
+  if (booleanString !== "TRUE" && booleanString !== "FALSE")
+    throw new Error("Invalid Boolean Sring");
+
   return booleanString === "TRUE";
 };

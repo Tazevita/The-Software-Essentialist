@@ -1,13 +1,17 @@
 import { booleanCalculator } from "./index";
 
 describe("boolean calculator", () => {
+  it("blocks invalid boolean strings", () => {
+    expect(() => booleanCalculator("Random Stuff Haha")).toThrowError();
+  });
+
   describe("single boolean strings", () => {
     it("answers with True when given 'TRUE'", () => {
       expect(booleanCalculator("TRUE")).toBeTruthy();
     });
 
     it("answers with False when given 'FALSE'", () => {
-      expect(booleanCalculator("FLASE")).toBeFalsy();
+      expect(booleanCalculator("FALSE")).toBeFalsy();
     });
   });
 
@@ -21,6 +25,15 @@ describe("boolean calculator", () => {
   });
 
   describe("boolean strings using 'AND'", () => {
+    it("answers with False when given 'TRUE AND FALSE'", () => {
+      expect(booleanCalculator("TRUE AND FALSE")).toBeFalsy();
+    });
+    it("answers with True when given 'TRUE AND TRUE'", () => {
+      expect(booleanCalculator("TRUE AND TRUE")).toBeTruthy();
+    });
+  });
+
+  describe("boolean strings using 'OR'", () => {
     it("answers with False when given 'TRUE AND FALSE'", () => {
       expect(booleanCalculator("TRUE AND FALSE")).toBeFalsy();
     });
