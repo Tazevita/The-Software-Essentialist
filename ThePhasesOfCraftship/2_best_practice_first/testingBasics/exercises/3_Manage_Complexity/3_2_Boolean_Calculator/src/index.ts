@@ -1,4 +1,9 @@
-const validateString = (str: string) => {
+const validateParenthesis = (str: string) => {
+  if (str.split("(").length - 1 !== str.split(")").length - 1)
+    throw new Error("Invalid Boolean String");
+};
+
+const validateWords = (str: string) => {
   str = str.replace("(", "");
   str = str.replace(")", "");
 
@@ -14,6 +19,11 @@ const validateString = (str: string) => {
     )
       throw new Error("Invalid Boolean String");
   });
+};
+
+const validateString = (str: string) => {
+  validateParenthesis(str);
+  validateWords(str);
 };
 
 const handlePureString = (booleanString: string) => {
