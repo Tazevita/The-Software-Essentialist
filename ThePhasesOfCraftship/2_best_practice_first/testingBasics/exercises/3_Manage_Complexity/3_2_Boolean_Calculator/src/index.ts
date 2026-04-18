@@ -44,6 +44,7 @@ const validateString = (str: string) => {
 };
 
 const handlePureString = (booleanString: string) => {
+  let lastLength = booleanString.length;
   while (booleanString !== "TRUE" && booleanString !== "FALSE") {
     booleanString = booleanString.replace("NOT TRUE", "FALSE");
     booleanString = booleanString.replace("NOT FALSE", "TRUE");
@@ -57,6 +58,11 @@ const handlePureString = (booleanString: string) => {
     booleanString = booleanString.replace("TRUE OR FALSE", "TRUE");
     booleanString = booleanString.replace("FALSE OR TRUE", "TRUE");
     booleanString = booleanString.replace("FALSE OR FALSE", "FALSE");
+
+    if (lastLength === booleanString.length)
+      throw new Error("Invalid Boolean String");
+
+    lastLength = booleanString.length;
   }
 
   return booleanString;
