@@ -19,8 +19,10 @@ const validateParenthesis = (str: string) => {
 };
 
 const validateWords = (str: string) => {
-  str = str.replace("(", "");
-  str = str.replace(")", "");
+  while (str.indexOf("(") !== -1 && str.indexOf(")") !== -1) {
+    str = str.replace("(", "");
+    str = str.replace(")", "");
+  }
 
   const allWords = str.split(" ");
 
@@ -42,7 +44,7 @@ const validateString = (str: string) => {
 };
 
 const handlePureString = (booleanString: string) => {
-  while (booleanString.length > 5) {
+  while (booleanString !== "TRUE" && booleanString !== "FALSE") {
     booleanString = booleanString.replace("NOT TRUE", "FALSE");
     booleanString = booleanString.replace("NOT FALSE", "TRUE");
 
@@ -61,18 +63,21 @@ const handlePureString = (booleanString: string) => {
 };
 
 const handleParenthesis = (booleanString: string) => {
-  return booleanString.replace(
-    booleanString.substring(
-      booleanString.indexOf("("),
-      booleanString.indexOf(")") + 1,
-    ),
-    handlePureString(
+  while (booleanString.includes("(")) {
+    booleanString = booleanString.replace(
       booleanString.substring(
-        booleanString.indexOf("(") + 1,
-        booleanString.indexOf(")"),
+        booleanString.indexOf("("),
+        booleanString.indexOf(")") + 1,
       ),
-    ),
-  );
+      handlePureString(
+        booleanString.substring(
+          booleanString.indexOf("(") + 1,
+          booleanString.indexOf(")"),
+        ),
+      ),
+    );
+  }
+  return booleanString;
 };
 
 export const booleanCalculator = (booleanString: string) => {
