@@ -1,5 +1,20 @@
 const validateParenthesis = (str: string) => {
-  if (str.split("(").length - 1 !== str.split(")").length - 1)
+  let stack = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "(") {
+      stack++;
+    }
+    if (str[i] === ")") {
+      stack--;
+    }
+
+    if (stack < 0) {
+      throw new Error("Invalid Boolean String");
+    }
+  }
+
+  if (str.split("(").length - 1 !== str.split(")").length - 1 || stack > 0)
     throw new Error("Invalid Boolean String");
 };
 

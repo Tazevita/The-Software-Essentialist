@@ -58,5 +58,8 @@ describe("boolean calculator", () => {
     it("answers with False when given 'NOT (TRUE AND TRUE)'", () => {
       expect(booleanCalculator("NOT (TRUE AND TRUE)")).toBeFalsy();
     });
+    it("block our operation when given ')(NOT (TRUE AND TRUE)'", () => {
+      expect(() => booleanCalculator(")(NOT (TRUE AND TRUE)'")).toThrow();
+    });
   });
 });
