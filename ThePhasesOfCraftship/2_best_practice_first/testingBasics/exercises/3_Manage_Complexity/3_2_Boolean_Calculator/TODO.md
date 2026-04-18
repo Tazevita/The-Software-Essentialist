@@ -39,3 +39,7 @@
 
 "(TRUE OR TRUE OR TRUE) AND FALSE" -> false
 "NOT (TRUE AND TRUE)" -> false
+
+while (booleanString.indexOf("(") && booleanString.indexOf(")")) {
+
+}
