@@ -1,3 +1,3 @@
 export const booleanCalculator = (booleanString: string) => {
-  return true;
+  return booleanString === "TRUE";
 };
