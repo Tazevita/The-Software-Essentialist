@@ -34,11 +34,11 @@ describe("boolean calculator", () => {
   });
 
   describe("boolean strings using 'OR'", () => {
-    it("answers with False when given 'TRUE AND FALSE'", () => {
-      expect(booleanCalculator("TRUE AND FALSE")).toBeFalsy();
+    it("answers with False when given 'FALSE OR FALSE'", () => {
+      expect(booleanCalculator("FALSE OR FALSE")).toBeFalsy();
     });
-    it("answers with True when given 'TRUE AND TRUE'", () => {
-      expect(booleanCalculator("TRUE AND TRUE")).toBeTruthy();
+    it("answers with True when given 'TRUE OR FALSE'", () => {
+      expect(booleanCalculator("TRUE OR FALSE")).toBeTruthy();
     });
   });
 });
