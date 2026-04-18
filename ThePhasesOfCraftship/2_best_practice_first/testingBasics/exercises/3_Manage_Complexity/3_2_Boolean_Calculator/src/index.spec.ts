@@ -14,5 +14,8 @@ describe("boolean calculator", () => {
     it("answers with False when given 'NOT TRUE'", () => {
       expect(booleanCalculator("NOT TRUE")).toBeFalsy();
     });
+    it("answers with True when given 'NOT FALSE'", () => {
+      expect(booleanCalculator("NOT FALSE")).toBeTruthy();
+    });
   });
 });
