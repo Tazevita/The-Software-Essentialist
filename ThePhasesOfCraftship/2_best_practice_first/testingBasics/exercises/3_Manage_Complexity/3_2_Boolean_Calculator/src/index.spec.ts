@@ -50,4 +50,10 @@ describe("boolean calculator", () => {
       expect(booleanCalculator("TRUE OR TRUE OR TRUE AND FALSE")).toBeTruthy();
     });
   });
+
+  describe("boolean strings using parenthesis", () => {
+    it("answers with False when given '(TRUE OR TRUE OR TRUE) AND FALSE", () => {
+      expect(booleanCalculator("(TRUE OR TRUE OR TRUE) AND FALSE")).toBeFalsy();
+    });
+  });
 });

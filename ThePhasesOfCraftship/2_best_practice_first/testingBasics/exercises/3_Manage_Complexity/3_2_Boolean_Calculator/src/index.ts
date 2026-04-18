@@ -1,4 +1,7 @@
 const validateString = (str: string) => {
+  str = str.replace("(", "");
+  str = str.replace(")", "");
+
   const allWords = str.split(" ");
 
   allWords.forEach((word) => {
@@ -32,9 +35,25 @@ const handlePureString = (booleanString: string) => {
   return booleanString;
 };
 
+const handleParenthesis = (booleanString: string) => {
+  return booleanString.replace(
+    booleanString.substring(
+      booleanString.indexOf("("),
+      booleanString.indexOf(")") + 1,
+    ),
+    handlePureString(
+      booleanString.substring(
+        booleanString.indexOf("(") + 1,
+        booleanString.indexOf(")"),
+      ),
+    ),
+  );
+};
+
 export const booleanCalculator = (booleanString: string) => {
   validateString(booleanString);
 
+  booleanString = handleParenthesis(booleanString);
   booleanString = handlePureString(booleanString);
 
   return booleanString === "TRUE";
